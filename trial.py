@@ -24,38 +24,4 @@ except Exception as e:
     print(e)
     sys.exit(1)
 
-#print(data)
-
-### DATA PROFILING ###
-
-#ROWS X COLUMNS
-print(f"no. of rows : {data.shape[0]}")
-print(f"no. of columns : {data.shape[1]}")
-
-
-#COLUMN-NAMES
-print(data.columns)
-
-#dtype of columns
-print(data.dtypes)
-
-#not-null values per column 
-print(data.count())
-
-#memory usage
-print(data.memory_usage)
-
-#null values
-print(data.isnull().sum())
-
-#duplicate records
-print(data.duplicated().sum())
-
-#sample data (first 5 rows)
-print(data.head())
-
-#sample data (last 5 rows)
-print(data.tail())
-
-#summary
-print(data.describe())
+print(data.columns.tolist())
