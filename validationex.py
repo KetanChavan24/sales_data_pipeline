@@ -1,4 +1,5 @@
-import pandas as pd 
+import pandas as pd
+import sys
 
 file_path = "Europe_Sales_Records.csv"
 
@@ -24,5 +25,26 @@ exp_columns = {
 }
 
 #incoming schema
-print(set(data.columns))
+inc_columns = set(data.columns)
+
+#missing_columns and expected_columns
+missing_columns = exp_columns - inc_columns
+unexpected_columns = inc_columns - exp_columns
+
+if missing_columns or unexpected_columns:
+    print("SCHEMA FAILED !")
+    if missing_columns:
+        print(f"missing columns: \n {missing_columns}")
+    if unexpected_columns:
+        print(f"unexpected columns: \n {unexpected_columns}")
+    
+
+    sys.exit(1)
+
+#SCHEMA SUCCESS VALIDATION
+else:
+    print("SCHEMA SUCCESS!!")
+
+
+
 
