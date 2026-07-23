@@ -14,7 +14,17 @@ for col in mandat_unique_col:
         duplicate_row_count = (data[col].duplicated()).sum()
         duplicate_rows.update({col : {"count" : duplicate_row_count , "rows" : duplicate_row_ind }})
 
+
+
 if(duplicate_rows):
     print("========================================== Duplicate VALIDATION ==========================================")
-    print()
+    print("Duplicate values found!")
+    for key,value in duplicate_rows.items():
+        print(f"{key}: {value}")
+    print("status : failed")
+else:
+    print("========================================== Duplicate VALIDATION ==========================================")
+    print("No Duplicate values found!")
+    print("status : Success!")
+
 
